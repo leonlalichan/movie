@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<head>
+    <link href="{% static 'css/edit.css' %}" rel="stylesheet">
+    <title>Edit Profile</title>
+</head>
+<center>
+<body>
+    <div class="form-container">
+        <h2>Edit Profile</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" value="{{ user_profile.first_name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" value="{{ user_profile.last_name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="{{ user_profile.email }}" required>
+            </div>
+            <div class="form-group">
+                <label for="bio">Bio:</label>
+                <textarea id="bio" name="bio">{{ user_profile.bio }}</textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn">Save</button>
+            </div>
+        </form>
+    </div>
+</center>
+</body>
+{% endblock %}

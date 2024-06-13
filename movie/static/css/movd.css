@@ -1,0 +1,152 @@
+/* movd.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.movie-detail-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.movie-poster {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.movie-poster img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+}
+
+.movie-info p {
+    font-size: 16px;
+    color: #555;
+    margin: 10px 0;
+}
+
+.movie-info .trailer-link {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.movie-info .trailer-link:hover {
+    background: #0056b3;
+}
+
+.movie-actions {
+    margin-top: 20px;
+}
+
+.movie-actions .edit-link,
+.movie-actions .delete-link {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.movie-actions .edit-link {
+    background: #28a745;
+    margin-right: 10px;
+}
+
+.movie-actions .edit-link:hover {
+    background: #218838;
+}
+
+.movie-actions .delete-link {
+    background: #dc3545;
+}
+
+.movie-actions .delete-link:hover {
+    background: #c82333;
+}
+
+h3 {
+    margin-top: 30px;
+    color: #333;
+}
+
+.reviews .review {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-review {
+    margin-top: 30px;
+}
+
+.add-review h4 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.add-review form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-review form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.add-review form input,
+.add-review form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.add-review form button {
+    padding: 10px 15px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-review form button:hover {
+    background: #0056b3;
+}
+
+.back-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.back-link a {
+    padding: 10px 15px;
+    background: #6c757d;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.back-link a:hover {
+    background: #5a6268;
+}

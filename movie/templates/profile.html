@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<head>
+    <link href="{% static 'css/profile.css' %}" rel="stylesheet">
+    <title>Profile</title>
+
+</head>
+<center>
+<body>
+    <div class="profile-container">
+        <h2>Profile</h2>
+        <div class="profile-card">
+
+            <p><strong>Username:</strong> {{ request.user.username }}</p>
+            <p><strong>First Name:</strong> {{ user_profile.first_name }}</p>
+            <p><strong>Last Name:</strong> {{ user_profile.last_name }}</p>
+            <p><strong>Email:</strong> {{ user_profile.email }}</p>
+            <p><strong>Bio:</strong> {{ user_profile.bio }}</p>
+            <div class="profile-actions">
+                <a class="btn" href="{% url 'edit_profile' %}">Edit Profile</a>
+                <a class="btn" href="{% url 'movies' %}">View Movies</a>
+                <a class="btn" href="{% url 'add_movie' %}">Add Movie</a>
+                <a class="btn btn-logout" href="{% url 'logout' %}">Logout</a>
+            </div>
+        </div>
+    </div>
+</body>
+</center>
+{% endblock %}

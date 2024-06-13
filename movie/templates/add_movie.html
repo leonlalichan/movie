@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<head>
+    <link href="{% static 'css/mova.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="form-container">
+        <h2 class="form-title">Add Movie</h2>
+        <form method="POST" enctype="multipart/form-data" class="movie-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="poster">Poster:</label>
+                <input type="file" name="poster" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea name="description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="release_date">Release Date:</label>
+                <input type="date" name="release_date" required>
+            </div>
+            <div class="form-group">
+                <label for="actors">Actors:</label>
+                <input type="text" name="actors" required>
+            </div>
+            <div class="form-group">
+                <label for="genre">Genre:</label>
+                <select name="genre" required>
+                    {% for genre in genres %}
+                    <option value="{{ genre.id }}">{{ genre.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="youtube_trailer">YouTube Trailer Link:</label>
+                <input type="url" name="youtube_trailer" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Add Movie</button>
+            </div>
+        </form>
+    </div>
+</body>
+{% endblock %}

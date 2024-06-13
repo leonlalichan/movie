@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <link href="{% static 'css/movd.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="movie-detail-container">
+        <h2>{{ movie.title }}</h2>
+        <div class="movie-poster">
+            <img src="{{ movie.poster.url }}" alt="{{ movie.title }}">
+        </div>
+        <div class="movie-info">
+            <p>{{ movie.description }}</p>
+            <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+            <p><strong>Actors:</strong> {{ movie.actors }}</p>
+            <p><strong>Genre:</strong> {{ movie.genre.name }}</p>
+            <p><a class="trailer-link" href="{{ movie.youtube_trailer }}" target="_blank">Watch Trailer</a></p>
+            <p><strong>Average Rating:</strong> {{ average_rating }}</p>
+            {% if request.user == movie.user %}
+            <div class="movie-actions">
+                <a class="edit-link" href="{% url 'edit_movie' movie.id %}">Edit</a>
+                <a class="delete-link" href="{% url 'delete_movie' movie.id %}">Delete</a>
+            </div>
+            {% endif %}
+        </div>
+        <h3>Reviews</h3>
+        <div class="reviews">
+            {% for review in reviews %}
+            <div class="review">
+                <p><strong>{{ review.user.username }}</strong> rated {{ review.rating }} stars</p>
+                <p>{{ review.comment }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% if request.user.is_authenticated %}
+        <div class="add-review">
+            <h4>Add a Review</h4>
+            <form method="POST" action="{% url 'add_review' movie.id %}">
+                {% csrf_token %}
+                <label for="rating">Rating:</label>
+                <input type="number" name="rating" min="1" max="5" required><br>
+                <label for="comment">Comment:</label>
+                <textarea name="comment" required></textarea><br>
+                <button type="submit">Add Review</button>
+            </form>
+        </div>
+        {% endif %}
+        <div class="back-link">
+            <a href="{% url 'movies' %}">Back to Movies</a>
+        </div>
+    </div>
+</body>
+{% endblock %}

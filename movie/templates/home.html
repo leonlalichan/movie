@@ -1,0 +1,77 @@
+<!-- movie_app/templates/home.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie App Home</title>
+</head>
+<body>
+    <h1>Welcome to the Movie App</h1>
+    {% if user.is_authenticated %}
+        <p>Hello, {{ user.username }}!</p>
+        <a href="{% url 'profile' %}">Your Profile</a>
+        <a href="{% url 'movies' %}">Browse Movies</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'register' %}">Register</a>
+    {% endif %}
+</body>
+</html>
+<div class="container">
+
+            {% for movie in movies %}
+
+                <h3><a href="{% url 'movie_detail' movie.id %}">{{ movie.title }}</a></h3>
+                <img src="{{ movie.poster.url }}" alt="{{ movie.title }}" width="100" height="100">
+                <p>{{ movie.description }}</p>
+                {% if request.user == movie.user %}
+                <div class="movie-actions">
+                    <a href="{% url 'edit_movie' movie.id %}">Edit</a>
+                    <a href="{% url 'delete_movie' movie.id %}">Delete</a>
+                </div>
+                {% endif %}
+
+            {% endfor %}
+def movies(request):
+    query = request.GET.get('query', '')
+    selected_genre_id = request.GET.get('genre', '')
+
+    if query:
+        movies = Movie.objects.filter(title__icontains=query)
+    else:
+        movies = Movie.objects.all()
+
+    if selected_genre_id:
+        movies = movies.filter(genre_id=selected_genre_id)
+
+    genres = Genre.objects.all()
+    return render(request, 'movies.html', {'movies': movies, 'genres': genres, 'selected_genre_id': selected_genre_id})
+
+
+
+
+
+
+
+
+
+
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if movies.has_previous %}
+                <a href="?page=1{% if query %}&query={{ query }}{% endif %}{% if selected_genre_id %}&genre={{ selected_genre_id }}{% endif %}">&laquo; first</a>
+                <a href="?page={{ movies.previous_page_number }}{% if query %}&query={{ query }}{% endif %}{% if selected_genre_id %}&genre={{ selected_genre_id }}{% endif %}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ movies.number }} of {{ movies.paginator.num_pages }}.
+            </span>
+
+            {% if movies.has_next %}
+                <a href="?page={{ movies.next_page_number }}{% if query %}&query={{ query }}{% endif %}{% if selected_genre_id %}&genre={{ selected_genre_id }}{% endif %}">next</a>
+                <a href="?page={{ movies.paginator.num_pages }}{% if query %}&query={{ query }}{% endif %}{% if selected_genre_id %}&genre={{ selected_genre_id }}{% endif %}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>

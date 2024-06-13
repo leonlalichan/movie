@@ -1,0 +1,147 @@
+body{
+
+font-family: "Roboto", sans-serif;}
+
+/**navbar**/
+.nav-item{
+   letter-spacing : .2em;
+   font-size :14px;
+   text-transform :uppercase;
+   }
+
+.dropdown-item{
+    letter-spacing : .2em;
+   font-size :14px;
+   text-transform :uppercase;
+
+}
+
+.my_footer{
+    background-color:#f8f9fa;
+    height:60px;
+}
+. my_footer p{
+    padding-top:20px;
+    font-size:14px:
+
+}
+/**category**/
+.my_row_class{
+    padding-top :15px;
+
+    }
+.my_row_class .mx_auto{
+    clor:#000:
+    font-size:12px;
+}
+
+.my_image{
+    width:auto;
+    heiht:auto;
+}
+
+.my_title{
+    font-size:16px:
+    text-transform :uppercase;
+    letter-spacing : .2em;
+}
+
+.my_image_padding{
+
+    padding:5px;
+}
+
+
+
+.my_bottom_margin{
+    margin-bottom:10px;
+    }
+
+.card-body{
+font-size:14px;
+text-transform :uppercase;
+    letter-spacing : .2em;
+
+}
+
+.my_pod_row_class .mx_auto
+{
+color:#000;
+font-size:12px;
+text-decoration:none;
+
+}
+
+.my_pod_title{
+font-size:16px;
+text-transform :uppercase;
+    letter-spacing : .2em;
+    padding-top:15px;
+    padding-bottom:10px;
+
+}
+.my_rod_text{
+padding-right:20px;
+}
+
+.my_search_text{
+padding-top:20px;
+}
+
+/**cart**/
+.my_custom_table{
+min-width:400px;
+font-size:14px;
+}
+
+.my_custom_thread{
+font-weight:normal;
+text-transform :uppercase;
+   background-color:#f8f8fa!important;
+    letter-spacing : .2em;
+}
+
+.custom_a{
+text-decoration:none;
+
+}
+
+.custom_icon{
+text-decoration:none;
+color:#868e96 !important;
+}
+
+.my_custom_button
+{
+margin-top:5px;
+}
+
+.my_style
+{
+body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+}
